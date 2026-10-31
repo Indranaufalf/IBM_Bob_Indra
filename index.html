@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TestCraft – AI-assisted test case generator for developers and students." />
+  <title>TestCraft – Test Case Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="logo" aria-label="TestCraft logo">
+        <!-- Simple inline SVG icon -->
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
+          <rect width="28" height="28" rx="6" fill="#2563EB"/>
+          <path d="M8 14l4 4 8-8" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>TestCraft</span>
+      </div>
+      <p class="tagline">AI-assisted test case generator</p>
+    </div>
+  </header>
+
+  <!-- ===== Main content ===== -->
+  <main class="container" id="main-content">
+
+    <!-- Input card -->
+    <section class="card" aria-labelledby="input-heading">
+      <h1 id="input-heading" class="card-title">Generate Test Cases</h1>
+      <p class="card-subtitle">
+        Paste a feature description or user story below, then click <strong>Generate</strong>.
+      </p>
+
+      <!-- Quick-fill examples -->
+      <div class="examples-bar" role="group" aria-label="Quick-fill examples">
+        <span class="examples-label">Try an example:</span>
+        <button class="btn-example" data-example="login"    type="button">Login Form</button>
+        <button class="btn-example" data-example="cart"     type="button">Shopping Cart</button>
+        <button class="btn-example" data-example="upload"   type="button">File Upload</button>
+      </div>
+
+      <!-- Feature description textarea -->
+      <label for="feature-input" class="sr-only">Feature description or user story</label>
+      <textarea
+        id="feature-input"
+        class="feature-textarea"
+        placeholder="e.g. As a registered user I want to log in with email and password so that I can access my dashboard…"
+        rows="6"
+        aria-required="true"
+        aria-describedby="input-hint input-error"
+      ></textarea>
+      <p id="input-hint"  class="hint-text">Minimum 20 characters. Be as specific as possible for better results.</p>
+      <p id="input-error" class="error-text" role="alert" aria-live="polite" hidden></p>
+
+      <!-- Generate button -->
+      <button id="generate-btn" class="btn-primary" type="button" aria-controls="output-section">
+        Generate Test Cases
+      </button>
+    </section>
+
+    <!-- Output section (hidden until generation) -->
+    <section id="output-section" class="output-section" aria-live="polite" hidden>
+
+      <!-- Summary bar -->
+      <div class="output-header">
+        <div class="summary-counts" id="summary-counts" aria-live="polite"></div>
+        <div class="output-actions">
+          <button id="copy-btn"     class="btn-secondary" type="button">Copy as Table</button>
+          <button id="download-btn" class="btn-secondary" type="button">Download CSV</button>
+        </div>
+      </div>
+
+      <!-- Grouped results rendered by JS -->
+      <div id="results-container"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>TestCraft &copy; 2026 &mdash; IBM Bob Capstone Project &bull; IT Track</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
